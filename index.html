@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+WELCOME USER! You've reached the source code for a manual created by STS. If you plan on updating or editing this manual, then you're in the right place!
+
+Before editing any STS manuals, please read through the editing guide at https://sts.doit.wisc.edu/manual-editing-guide and follow all recommendations. It is important that we follow the conventions set in the guide in order to maintain quality and consistency across all of our training materials.
+
+Good luck, and have fun!
+-->
+
+<head>
+
+    <!-- Manual title -->
+    <title>Access 1</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Software manual provided by Software Training for Students at the University of Wisconsin.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' id='uwmadison-fonts-css'  href='https://brand.wisc.edu/content/themes/uw-theme/dist/fonts/uw160/fonts.css?ver=1.1.1' type='text/css' media='all' /><link rel="stylesheet" type="text/css" href="../master-files/css/stylesheet.css">
+        <script src="../master-files/highlight.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="../master-files/smooth-scroll.js"></script>
+        <script src="../master-files/primary-functions.js"></script>
+        <script src="../master-files/ga.js"></script>
+</head>
+
+<body>
+    <!-- begin front page -->
+
+    <div class="manual-front-page">
+        <div id="coverpage-title">
+            <h1>Access 1</h1>
+            <h2>Structuring and Navigating a Database</h2>
+        </div>
+        <div id="about-page"></div>
+        <div id="outline"></div>
+    </div>
+    <!-- BEGIN MAIN CONTENT -->
+    <section class="topic">
+        <h1>Introduction</h1>
+        <h2>What is a Database and Why Should I Use One?</h2>
+        <p>A database is an organized collection of information. Common examples of databases include mailing lists, telephone books, possession collections (baseball cards, international fridge magnets...you get the idea). In the business world, databases might be used to store information about customers, employees, product orders, and inventory. Microsoft Access is a database management software that provides tools for easily building and managing databases. </p>
+        <p>Why not just use Excel? Microsoft Excel is a spreadsheet software that essentially creates one long list of information. As a database management software, Access creates what are known as “relational databases” that allow the user to link multiple spreadsheets together through their fields. Well-made databases are organized to avoid duplicate or inconsistent information and are more efficient than spreadsheets when dealing with large amounts of data.</p>
+        <h2>How to Get Microsoft Access</h2>
+        <h3>Windows</h3>
+<p>If you have a Windows computer, you can download the entire suite of Microsoft Office for free from DoIT <a href="https://software.wisc.edu" target="_blank">through the Office 365 Web Portal</a>. </p>
+        <h3>MacOS</h3>
+        <p>Unlike the rest of the Microsoft Office suite, Access is only available on Windows.</p>
+        <p>To get Access on a Mac computer, you will need to run Windows on your Mac using a virtual machine program like Parallels (easier but can run more slowly), or set up your computer to dual-boot both MacOS and Windows (more complex but performs slightly better). </p>
+    </section>
+    <section class="topic">
+        <h1>Database Concepts</h1>
+        <p>In this section, we'll examine some key concepts that underlie database development:</p>
+        <ul>
+            <li>
+                <p><strong>Tables</strong>: Where our data will be stored.</p>
+            </li>
+            <li>
+                <p><strong>Primary/Foreign keys</strong>: The places where our tables connect to one another.</p>
+            </li>
+            <li>
+                <p><strong>Relationships</strong>: How we will link our tables together.</p>
+            </li>
+        </ul>
+        <div class="sidebar-note">
+            <h2> Creating well-designed databases </h2>
+            <p> There are a few accepted standards for the <em>normalization</em> of a database that will help you if you plan to create a database from scratch. You can read more about these standards in Appendix A of this manual. </p>
+        </div>
+        <p>It's very important to plan out your database before you jump in and start working! Since the contents of a database are highly interrelated, it's difficult to go back and make changes once you've started.</p>
+        <p>In this case, however, we have created a database for you. This database is an abridged collection of business statistics from <a href="https://www.yelp.com/dataset_challenge">yelp.com</a>, and it contains information on businesses, Yelp reviews, and Yelp users in Madison, Wisconsin.</p>
+        <h2>Tables</h2>
+        <p>The first step of learning how a particular database functions is to look at its tables. In our abridged Yelp dataset, we will have three tables of information:</p>
+        <ul>
+            <li>
+                <p><strong>business</strong>: Data about the businesses in Madison that have been reviewed on Yelp.</p>
+            </li>
+            <li>
+                <p><strong>user</strong>: Data about each Yelp user that has reviewed a business in Madison.</p>
+            </li>
+            <li>
+                <p><strong>review</strong>: Data about every review that a user has made about a business.</p>
+            </li>
+        </ul>
+        <h3>Exercise: Exploring Tables</h3>
+        <p>Let's open our database and examine the tables. </p>
+        <ol class="instruction-list">
+            <li>
+                <p>Open <span class="type-text">yelp-database.accdb</span> from your Class Files folder.</p>
+            </li>
+            <li>
+                <p>If a Security Warning is shown at the top of your interface, click Enable Content.</p>
+            </li>
+            <img class="border large center" src="images/concepts-tables-1.png" alt="Screenshot of a Security Warning showing the Enable Content button">
+            <li>
+                <p>Open the <strong>business</strong> table by double-clicking on "business" in the Tables panel on the left side of the Access interface.</p>
+                <img class="border large" src="images/concepts-tables-2.png" alt="Diagram of the Access interface showing the location of records, fields, and tables">
+                <p>Every database consists of a collection of tables, which are defined by fields and populated by records.</p>
+                <ul>
+                    <li>
+                        <p><strong style="color: #1A992F">Tables</strong> are conceptually similar to single spreadsheets in that they contains rows and columns of data.</p>
+                    </li>
+                    <li>
+                        <p><strong style="color: #19389B">Fields</strong> are the different categories of information that a table shows.</p>
+                    </li>
+                    <li>
+                        <p><strong style="color: #8F1C99">Records</strong> are units in a table that contain a distinct value for each field.</p>
+                    </li>
+                </ul>
+                <p>A table is one example of an Access object, which is why the tables in our database are listed under the Objects Panel. Any Access object can be opened, saved, renamed, and closed independently. When an object is open, it is shown in the Access interface as an <strong style="color: #00A09C">Object Tab</strong>. You can right-click on any Object Tab to save, rename, or close it.</p>
+            </li>
+            <li>
+                <p>Open the other two tables in your database by double-clicking on their names in the Object Panel. With the exception of the ID fields, which we will explore later in this manual, you should be able to make a guess at what information all of the fields contain.</p>
+                <p>Before we go any further, we will save our entire Access database as a copy of itself. Many changes in Microsoft Access cannot be undone, and if a mistake is made, sometimes the only thing to do is revert to an earlier version of the database. By creating a copy of our .accdb file and saving it regularly, we will avoid lots of trouble in the long run.</p>
+            </li>
+            <li>
+                <p>Choose <span class="type-text">File &gt; Save As &gt; Access Database</span>. Name your new file <span class="type-text">yelp-database-edits.accdb</span>, because this is the file that we will be working on throughout today's class. Now <span class="type-text">yelp-database.accdb</span> will remain untouched so that we can always go back to it if need be.</p>
+            </li>
+            <li>
+                <p>If the Security Warning pops up again, click on the Enable Content button again.</p>
+            </li>
+        </ol>
+        <h3>Exercise: Modifying Fields in Design View</h3>
+        <ol class="instruction-list">
+            <li>
+                <p>Open the <strong>review</strong> table by double-clicking its name in the Object Panel on the left.</p>
+            </li>
+            <img class="small float-right border" src="images/concepts-tables-3.png" alt="The View button"/>
+            <li>
+                <p>On the left side of Access's Home tab, either click on the Design View icon or click <span class="type-text">View &gt; Design View</span></p>
+                <p>A table's Design View shows us the table's fields as rows in a grid. Here we can set up how our fields will work.</p>
+            </li>
+            <li>
+                <p>Edit the fields according to these guidelines:</p>
+                <ol class="instruction-list">
+                    <li>
+                        <p><strong>review_id</strong>: We will not change this field.</p>
+                    </li>
+                    <li>
+                        <p><strong>business_id</strong>: This field will relate to the business_id field in the <strong>business</strong> table, so it must have the same Data Type. Change the Data Type for business_id from "Short Text" to "Number."</p>
+                    </li>
+                    <div class="sidebar-note">
+                        <h2>Why is this important?</h2>
+                        <p>Working with a database is often a frustrating experience. These steps may seem unnecessary and trite at first, but they go a long way to set up boundaries and guidelines that will keep our database organized, saving ourselves a lot of frustration in the future!</p>
+                    </div>
+                    <li>
+                        <p><strong>user_id</strong>: This field will relate to the user_id field in the <strong>user</strong> table. It already has the same type, but we must also pay attention to the Field Properties for each field (located at the bottom of our screen). Click on the user_id field to select it, and in the Field Properties below, change Field Size to 22.</p>
+                    </li>
+                    <li>
+                        <p><strong>review_date</strong>: There is a special Field Type for date and time information. Using this data type will allow us to sort data chronologically. Change the Data Type for review_date from "Short Text" to "Date/Time".</p>
+                    </li>
+                    <li>
+                        <p><strong>stars</strong>: This field should also be a number, but it will not always be an integer. Also, no review can give a business greater than 5 stars or less than 1 star, so we will add a Validation Rule to make sure that no review exceeds these boundaries. We will then add Validation Text that will be shown if someone tries to add a review that does not satisfy the Rule.</p>
+                        <ul>
+                            <li>
+                                <p>First, change the Data Type for stars from "Short Text" to "Number."</p>
+                            </li>
+                            <li>
+                                <p>In the Field Properties below, change the Field Size from "Long Integer" to "Single." This will allow non-integer ratings such as 4.5.</p>
+                            </li>
+                            <li>
+                                <p>In the Field Properties, input the following expression for the Validation Rule:
+                                    <p><span class="type-text">&gt;=1 And &lt;=5</span></p>
+                            </li>
+                            <li>
+                                <p>Finally, input the following for Validation Text (without quotes): "Number of stars must be between 1 and 5."</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>review_text</strong>: Leave this field as it is -- we have finished it for you!</p>
+                    </li>
+                </ol>
+            </li>
+            <div class="centered-image-medium"><img src="images/concepts-tables-4.png" /></div>
+            <li>
+                <p>Make sure your table's fields look like the example above, and double-check every change that you have made to the properties of each field. You will not be able to undo these changes once you have saved them!</p>
+            </li>
+            <li>
+                <p>Right-click on the tab for the <strong>review</strong> table (right above the first row of cells) and click Save.</p>
+            </li>
+            <li>
+                <p>A warning will pop up to notify us that we are in danger of losing information. Make sure that you have made a copy of your database, and then click Yes.</p>
+            </li>
+            <img class="center border" src="images/concepts-tables-5.png" alt="">
+            <li>
+                <p>A second warning will pop up to ask if the existing data in our <strong>review</strong> table should be checked for accordance with the Validation Rule we have set. Click Yes. </p>
+                <div class="centered-image-medium"><img src="images/concepts-tables-6.png" /></div>
+                <p>Caution: if a third dialog box appears and says that the existing review data violates our Validation Rule, click No and make sure you have not made any errors in step 3!</p>
+            </li>
+        </ol>
+        <h2>Primary and Foreign Keys</h2>
+        <p>In order to create a relationship between two tables, we need to link a specific field in one table to a related field in the other table. The field on which a table is connected to another table is called a key.</p>
+        <p>A <strong>primary key</strong> is a field that uniquely identifies each record in a table. In our <strong>business</strong> table, the primary key is business_id. </p>
+        <p>A <strong>foreign key</strong> is a field whose values correspond to the values of another table's primary key. Our <strong>review</strong> table has a foreign key of business_id that corresponds to the same field in our <strong>business</strong> table. </p>
+        <p>Let's create a primary key for each table in our database.</p>
+        <h3>Exercise: Defining Primary Keys</h3>
+        <ol class="instruction-list">
+            <li>
+                <p>Navigate to the <strong>business</strong> table.</p>
+            </li>
+            <div class="side-image-small"><img src="images/concepts-keys-1.png"></div>
+            <li>
+                <p>Make sure you are in Design View, with the fields of your table shown as rows -- if not, click the Design View button at the left of the Home tab.</p>
+            </li>
+            <li>
+                <p>The primary key for the <strong>business</strong> table will be business_id. Select business_id, then click on the Primary Key button in the Design tab. A small key icon should appear to the left of the business_id field.</p>
+            </li>
+            <div class="centered-image-medium"><img src="images/concepts-keys-2.png" /></div>
+            <li>
+                <p>In the <strong>user</strong> table, use the same method to set the primary key to user_id. In the <strong>review</strong> table, set the primary key to review_id.</p>
+            </li>
+            <li>
+                <p>Save your changes by right-clicking on the tab for each table and choosing Save.</p>
+            </li>
+            <li>
+                <p>When you are finished, close all open tables by right-clicking on the tab for any table and choosing Close All. Closing tables keeps our workspace tidy and allows Access to safely make changes to our database structure as we keep working.</p>
+            </li>
+        </ol>
+        <h2>Relationships</h2>
+        <p>Relationships between tables allow the tables to work together, avoiding duplication of data and allowing queries to access multiple tables at once. Tables within a database can be related to each other in three ways: one-to-one, one-to-many, and many-to-many.</p>
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Explanation</th>
+                <th>Example of use</th>
+            </tr>
+            <tr>
+                <td> One-to-one </td>
+                <td> Each record in either table relates to one and only one record in the opposite table. </td>
+                <td>Each UW student has one and only one health record, and each health record is related to one and only one student.</td>
+            </tr>
+            <tr>
+                <td>One-to-many</td>
+                <td>A record in the first table relates to zero, one, or multiple records in the second table, but each record in the second table is related to one and only one record in the first table.</td>
+                <td>A department can hold any number of professors, but each professor is listed under one and only one department.</td>
+            </tr>
+            <tr>
+                <td>Many-to-many</td>
+                <td>A record in either table can relate to zero, one, or multiple records in the opposite table.</td>
+                <td>A student can be enrolled in any number of classes, and a class can contain any number of students.</td>
+            </tr>
+        </table>
+        <p>Let's get ready to create some relationships in our database!</p>
+        <h3>Exercise: Exploring Relationships</h3>
+        <div class="side-image-small"><img src="images/concepts-relationships-1.png"></div>
+        <ol class="instruction-list">
+            <li>
+                <p>Navigate to Access's Database Tools tab and click on the Relationships button.</p>
+                <div class="side-image-small"><img src="images/concepts-relationships-2.png"></div>
+                <p>The Relationships layout will open, displyaing a blank space. This is where we will put our database's tables.</p>
+            </li>
+            <li>
+                <p>With Relationships open, click on the Show Table button in the Design tab. A Show Table dialog box will appear.</p>
+            </li>
+            <div class="centered-image-medium"><img src="images/concepts-relationships-3.png"></div>
+            <li>
+                <p>Select all three tables, click Add, then Close.</p>
+            </li>
+            <li>
+                <p>Three boxes that represent our three tables will now be shown on our Relationships interface. You can move these boxes around by clicking and dragging on their top bar. For now, just make sure that <strong>reviews</strong> is in between <strong>business</strong> and <strong>user</strong>.</p>
+            </li>
+        </ol>
+        <p>Your interface should look something like this. Make sure that your tables' primary keys are the same as those below -- if not, you'll need to redefine them in your tables' Design View.</p>
+        <img class="center border" src="images/concepts-relationships-4.png" alt="">
+        <h3>Exercise: Creating Relationships</h3>
+        <p>The Relationships interface allows us to create relationships between tables. Let's start by deciding what relationships we need to create:</p>
+        <ul>
+            <li>
+                <p>Each review should be linked to the business it critiques, and each business should be linked to a list of its reviews (One-to-Many).</p>
+            </li>
+            <li>
+                <p>Each review should be linked to the user who authored it, and each user should be linked to a list of the reviews they have made (One-to-Many).</p>
+            </li>
+            <li>
+                <p>Each business should be linked to a list of users who have reviewed it, and each user should be linked to a list of businesses that they have reviewed (Many-to-Many).</p>
+            </li>
+        </ul>
+        <p>Believe it or not, we only need to create two relationships to satisfy all three of the above connections. Let's begin!</p>
+        <ol class="instruction-list">
+            <li>
+                <p>Click on the business_id field within the <strong>business</strong> table and hold your mouse button. Drag your mouse to the business_id field in the <strong>reviews</strong> table and release the mouse button.</p>
+            </li>
+            <div class="centered-image-medium"><img src="images/concepts-relationships-5.png"></div>
+            <li>
+                <p>In the Edit Relationships dialog box that appears, check Enforce Referential Integrity and then click Create. A line will appear connecting the two fields that have just been related to one another.</p>
+                <div class="centered-image-medium"><img src="images/concepts-relationships-6.png"></div>
+                <p>Recall the types of relationships discussed earlier. This is an example of a One-to-Many relationship, as evidenced by the 1 and &infin; above. This is good, because we want every business to be related to some number of reviews, but a single review should not relate to more than one business.</p>
+            </li>
+            <div class="sidebar-note">
+                <h2>More on Referential Integrity</h2>
+                <p>The three options given while creating a relationship each have distinct functions pertaining to how you will be able to edit your database. You can learn more about all three in Appendix B of this manual.</p> <img src="images/concepts-relationships-7.png"> </div>
+            <li>
+                <p>Repeat steps 1 and 2, this time dragging the user_id field in the <strong>user</strong> table to the user_id field in the <strong>reviews</strong> table. This will also be a One-to-Many relationship, because one user can write many reviews but a single review can only have one author.</p>
+                <p>All we need to do now is create a Many-to-Many relationship between <strong>business</strong> and <strong>user</strong>. With a closer look, though, we can see that this relationship has already been created! Every business is linked to a list of reviews, which are each linked to a single user: thus, every business is also linked to a list of users who have reviewed it. Likewise, every user is linked to a list of reviews they have made, which are each tied to a business. This interaction between two One-to-Many relationships is actually the only way to create a Many-to-Many relationship in Access.</p>
+            </li>
+            <li>
+                <p>Since we are finished editing our relationships, save and close the Relationships Layout object.</p>
+            </li>
+        </ol>
+        <p>Now that we have related our tables to one another, what can we do? Relationships allow for the creation of multi-table queries, reports, and forms, but we won't get to those topics until Access 2. For now, we will use the Referential Integrity that we have just instated to make sure nothing goes wrong when we add 805 new records to the <strong>review</strong> table.
+    </section>
+    <section class="topic">
+        <h1>Importing and Exporting Data</h1>
+        <h3>Exercise: Importing Data from a Spreadsheet</h3>
+        <p>You can add data to a table simply by adding a new row underneath the bottom-most record in Datasheet View, but what if there is an entire spreadsheet of records to add? In this exercise, we will add 805 records to the <strong>review</strong> table with just a few clicks.</p>
+        <div class="sidebar-note">
+            <h2>Tip for importing spreadsheets</h2>
+            <p>When importing data from a spreadsheet, make sure that the column names in the spreadsheet match your field names exactly; otherwise, you'll get an import error.</p>
+        </div>
+        <ol class="instruction-list">
+            <li>
+                <p>Navigate to the External Data tab at the top of your screen. In the Import &amp; Link section, click on Excel.</p>
+            </li>
+            <li>
+                <p>In the "Get External Data" window that opens, click the Browse button and select <span class="type-text">2014-reviews.xlsx</span> in the class files. Click Open.</p>
+            </li>
+            <li>
+                <p>Select "Append a copy of the records to the table:" then choose "review" from the dropdown menu.</p>
+            </li>
+            <img class="center border" src="images/importing-1.png" alt="">
+            <li>
+                <p>Click OK. If you are prompted to close the <strong>review</strong> table, click Yes.</p>
+            </li>
+            <li>
+                <p>An "Import Spreadsheet Wizard" will appear. Click Finish, then Close.</p>
+            </li>
+            <li>
+                <p>Open the <strong>review</strong> table. Our database now contains review records from 2014!</p>
+            </li>
+        </ol>
+        <h3>Exercise: Exporting Data to a Spreadsheet</h3>
+        <p>You can also export a table from an Access database to an Excel spreadsheet. Spreadsheets are much smaller than databases and they are easier to use, so exporting tables from Access is useful for sending information to other people.</p>
+        <ol class="instruction-list">
+            <li>
+                <p>Select any table in your database and open it.</p>
+            </li>
+            <li>
+                <p>In the External Data tab, click the Excel button in the Export section on the right.</p>
+            </li>
+            <li>
+                <p>In the Export window that opens, click the Browse button and choose a place for your file.</p>
+            </li>
+            <li>
+                <p>Click the checkboxes next to "Export data with formatting and layout" and "Open the destination file after the export operation is complete."</p>
+            </li>
+            <img class="center border" src="images/importing-2.png" alt="">
+            <li>
+                <p>Click OK. Your exported spreadsheet should open automatically in Excel!</p>
+            </li>
+        </ol>
+    </section>
+    <section class="topic">
+        <h1>Manipulating Tables</h1>
+        <p>Now that we have a full <span class="type-text"><strong>review</strong></span> table with lots of data in it, let’s take a look at the basic sorting, filtering, and formatting options available in Access.</p>
+        <h3>Exercise: Sorting Tables</h3>
+        <p>Sorting tables is useful for organizing data. Let's organize our businesses alphabetically.</p>
+        <ol class="instruction-list">
+            <li>
+                <p>Open the <strong>business</strong> table in Datasheet View.</p>
+            </li>
+            <li>
+                <p>Click on the dropdown arrow to the right of the field label for the business_name field.</p>
+            </li>
+            <li>
+                <p>Choose "Sort A to Z." The business data will be rearranged alphabetically by business name.</p>
+                <div class="centered-image-medium"><img src="images/manipulation-sorting-1.png" /></div>
+                <p>We can also use sorting to look for trends without getting into complicated queries or forms. Let's organize the <strong>business</strong> table by its star field in order to make conclusions about which businesses have the best reception on Yelp.</p>
+            </li>
+            <div class="sidebar-note">
+                <h2>Note on field types</h2>
+                <p>Notice that the sort options for Short Text fields, Number fields, and Date/Time fields are all worded differently. Choosing field types carefully has benefits that extend through all corners of Access!</p>
+            </div>
+            <li>
+                <p>Click on the dropdown arrow for the stars field and choose "Sort Largest to Smallest."</p>
+                <p>Now the records are arranged by the business's star rating, but within a single star rating (for example, in the group of businesses with a rating of 4), the businesses are still arranged alphabetically: this is a left-over effect from our first Sort.</p>
+            </li>
+            <li>
+                <p>To remove all Sort effects, click on the "Remove Sort" button in the Home tab in the Sort &amp; Filter section.</p>
+                <div class="centered-image-tiny"><img src="images/manipulation-sorting-2.png" /></div>
+            </li>
+        </ol>
+        <h3>Exercise: Filtering Tables</h3>
+        <p>We can also filter tables to hide all records that do not fulfill particular criteria. Let's look at all of the businesses with 3 or 3.5 stars.</p>
+        <div class="side-image-large"><img src="images/manipulation-filtering-1.png" /></div>
+        <ol class="instruction-list">
+            <li>
+                <p>In the dropdown menu for the stars field, uncheck "Select All." </p>
+            </li>
+            <li>
+                <p>In the same dropdown menu, check "3" and check "3.5".</p>
+            </li>
+            <li>
+                <p>Click OK. The data is now filtered, which means that the records with less than 3 or more than 3.5 stars are hidden from view.</p>
+            </li>
+            <li>
+                <p>To clear the filter, click on the dropdown arrow for the stars field and click "Clear filter from stars."</p>
+            </li>
+        </ol>
+        <h2>Formatting Tables</h2>
+        <p>On the Home tab, under the Text Formatting section, you will find the standard Office text formatting options like font, bold, and italicize, plus a few options specific to Access.</p>
+        <div class="centered-image-medium"><img src="images/manipulation-formatting-1.png" /></div>
+        <p>Just like Excel, you can resize columns to fit your data. Hovering the mouse point over the boundaries between columns will change it to a double-headed arrow. Click and drag to resize, or double click to automatically snap the column width to that of the longest data value. You can also hide columns that you don’t want to see.</p>
+    </section>
+    <section class="topic">
+        <h1>Conclusion</h1>
+        <p>Congratulations on finishing Access 1! You should now have a good understanding of Access basics and the structure of a database. During the class, we touched on a lot of key concepts integral to using Access, and began to look at tools that help sort through the data. If you are interested in learning more, check out lynda.com as well as the Access 2 class that STS offers.</p>
+        <div class="page-break"></div>
+    </section>
+    <section class="topic">
+        <h1>Appendix A: Tips for creating databases</h1>
+        <p>We can improve the design of a database by using concepts of <em>normalization</em>. Database normalization is the process by which a database is designed in accordance with accepted standards. These standards help guide the design process and will help keep your database operating as efficiently as possible.</p>
+        <p><strong>Identify and separate repeated field values</strong></p>
+        <p>If a particular field exists in more than one table, move that field into another table and link it to the original tables via Primary/Foreign Keys.</p>
+        <p><strong>Separate fields that require multiple values</strong></p>
+        <p>As we learned when discussing Many-to-Many relationships, a single field within a record can only contain one value. Fields that might require multiple values need to be moved to separate tables and linked via Primary/Foreign Keys.</p>
+        <p><strong>Divide information into the smallest "chunks" possible</strong></p>
+        <p>Searching and sorting is difficult if there is a large amount of data in a given field; break up fields in to small "chunks" of information whenever possible. For example, addresses are difficult to search if an entire address is contained in one field. Instead, break an address into multiple fields: Street Address, City, State, and Zip Code. (In the class file, we didn't even include the latter three fields because they would have all been largely the same!)</p>
+        <div class="page-break"></div>
+    </section>
+    <section class="topic">
+        <h1>Appendix B: Referential Integrity</h1>
+        <p>In a one-to-many relationship such as the ones in our Yelp databse, we can think of the records in the "many" side as <em>references</em> to records in the "one" side.</p>
+        <p>Let's say that there are some businesses in our <strong>business</strong> table that are no longer open. If we wanted to delete a business from our database, we could try to remove the relevant record from the <strong>business</strong> table. However, if this business has reviews in the <strong>review</strong> table associated with it, these review records would be <em>orphaned</em>, here meaning that they now reference an empty spot in the <strong>business</strong> table. Put another way, the review records may still contain a business_id field, but that business_id will no longer be valid because the business it represents does not exist.</p>
+        <p>Using "Enforce Referential Integrity" when you create a relationship will turn on a safeguard within Access that will not allow you to ever change or remove the target of a reference, thus making the above hypothetical situation impossible.</p>
+        <p>Sometimes, however, there is a perfectly valid reason to change or delete a target record, such as the situation described above where a business in our <strong>business</strong> table has permanently closed. In this situation, Access can help us out by automatically updating ("Cascade Update Related Fields") or deleting ("Cascade Delete Related Fields") all of the affected records at once.</p>
+        <table>
+            <tr>
+                <th>Option</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Enforce Referential Integrity</td>
+                <td> Access will not allow the user to change or delete any record that is referenced by other fields in the database -- unless CURF or CDRF, respectively, is checked. </td>
+            </tr>
+            <tr>
+                <td>Cascade Update Related Fields</td>
+                <td>Changing a field in a target record will automatically update all of the record values that reference it.</td>
+            </tr>
+            <tr>
+                <td>Cascade Delete Related Fields</td>
+                <td>Deleting a field in a target record will automatically delete all of the records that reference it.</td>
+            </tr>
+        </table>
+        <!-- END MAIN CONTENT -->
+</body>
+
+</html>
